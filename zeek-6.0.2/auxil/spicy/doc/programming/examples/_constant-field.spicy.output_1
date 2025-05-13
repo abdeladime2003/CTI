@@ -1,3 +1,0 @@
-# Automatically generated; do not edit. -- <HASH> printf 'bar' | spicy-driver %INPUT/printf 'bar' | spicy-driver %INPUT/False
-# printf 'bar' | spicy-driver foo.spicy
-bar

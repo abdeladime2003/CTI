@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC  -Wall -Wno-unused -Wno-register -Werror=vla -O2 -g -DNDEBUG -shared -Wl,-soname,libbinpac.so.0 -o libbinpac.so.0.61 CMakeFiles/binpac_lib.dir/binpac_buffer.cc.o CMakeFiles/binpac_lib.dir/binpac_bytestring.cc.o CMakeFiles/binpac_lib.dir/binpac_regex.cc.o  -Wl,-rpath,::::::::::::::::::: 

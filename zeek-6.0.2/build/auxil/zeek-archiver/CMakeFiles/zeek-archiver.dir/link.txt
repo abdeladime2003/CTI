@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wno-unused -Wno-register -Werror=vla -O2 -g -DNDEBUG "CMakeFiles/zeek-archiver.dir/zeek-archiver.cc.o" -o zeek-archiver  -Wl,-rpath,::::::::::::::::::: 

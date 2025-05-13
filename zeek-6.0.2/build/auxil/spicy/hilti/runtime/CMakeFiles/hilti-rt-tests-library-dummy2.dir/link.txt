@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC  -Wall -Wno-unused -Wno-register -Werror=vla -O3 -g -DNDEBUG -shared -Wl,-soname,libhilti-rt-tests-library-dummy2.so -o ../../lib/libhilti-rt-tests-library-dummy2.so "CMakeFiles/hilti-rt-tests-library-dummy2.dir/src/tests/library-dummy.cc.o" 

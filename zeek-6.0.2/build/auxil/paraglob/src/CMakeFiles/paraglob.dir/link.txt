@@ -1,2 +1,0 @@
-/usr/bin/ar qc libparaglob.a CMakeFiles/paraglob.dir/paraglob.cpp.o CMakeFiles/paraglob.dir/paraglob_serializer.cpp.o CMakeFiles/paraglob.dir/ahocorasick/ahocorasick.c.o CMakeFiles/paraglob.dir/ahocorasick/node.c.o CMakeFiles/paraglob.dir/ahocorasick/mpool.c.o CMakeFiles/paraglob.dir/ahocorasick/replace.c.o CMakeFiles/paraglob.dir/ahocorasick/AhoCorasickPlus.cpp.o
-/usr/bin/ranlib libparaglob.a

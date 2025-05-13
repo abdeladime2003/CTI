@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wno-unused -O2 -g -DNDEBUG CMakeFiles/adtrace.dir/adtrace.c.o -o adtrace  /usr/lib/x86_64-linux-gnu/libpcap.so 

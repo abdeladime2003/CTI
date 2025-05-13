@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wno-unused -Wno-register -Werror=vla -std=c++17 -Wall -O2 -g -DNDEBUG "CMakeFiles/paraglob-test.dir/driver.cpp.o" "CMakeFiles/paraglob-test.dir/benchmark.cpp.o" -o paraglob-test  -Wl,-rpath,::::::::::::::::::: ../src/libparaglob.a 

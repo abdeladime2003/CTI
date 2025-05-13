@@ -1,2 +1,0 @@
-#!/bin/sh
-"${BUILD}/zeek-config" --have-spicy-analyzers >/dev/null

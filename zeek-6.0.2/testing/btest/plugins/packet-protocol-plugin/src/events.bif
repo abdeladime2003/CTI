@@ -1,2 +1,0 @@
-
-event raw_layer_message%(message: string, protocol: count%);
