@@ -1,0 +1,8 @@
+/home/abdo/Cti_Project/zeek-6.0.2.tar.gz
+/home/abdo/Cti_Project/libs
+myenv
+config.yaml
+docker-compose.yaml
+zeek/
+/logs/
+libs/

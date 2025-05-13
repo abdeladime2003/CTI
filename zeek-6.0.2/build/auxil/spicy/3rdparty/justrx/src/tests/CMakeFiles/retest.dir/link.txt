@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wno-unused -O2 -g -DNDEBUG CMakeFiles/retest.dir/retest.c.o -o ../../../../bin/retest  -Wl,-rpath,/home/abdo/Cti_Project/zeek-6.0.2/build/auxil/spicy/lib ../../../../lib/libjrx.so 

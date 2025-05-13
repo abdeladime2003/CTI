@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wno-unused -O2 -g -DNDEBUG "CMakeFiles/zeek-cut.dir/zeek-cut.c.o" -o zeek-cut 

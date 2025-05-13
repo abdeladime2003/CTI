@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "../../../../scripts/base/bif/plugins/Zeek_DCE_RPC.consts.bif.zeek"
+  "../../../../scripts/base/bif/plugins/Zeek_DCE_RPC.events.bif.zeek"
+  "../../../../scripts/base/bif/plugins/Zeek_DCE_RPC.types.bif.zeek"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/DCE_RPC.cc.o"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/DCE_RPC.cc.o.d"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/Plugin.cc.o"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/Plugin.cc.o.d"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/consts.bif.cc.o"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/consts.bif.cc.o.d"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/consts.bif.init.cc.o"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/consts.bif.init.cc.o.d"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/dce_rpc_pac.cc.o"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/dce_rpc_pac.cc.o.d"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/events.bif.cc.o"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/events.bif.cc.o.d"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/events.bif.init.cc.o"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/events.bif.init.cc.o.d"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/types.bif.cc.o"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/types.bif.cc.o.d"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/types.bif.init.cc.o"
+  "CMakeFiles/plugin-Zeek-DCE_RPC.dir/types.bif.init.cc.o.d"
+  "consts.bif.cc"
+  "consts.bif.h"
+  "consts.bif.init.cc"
+  "consts.bif.register.cc"
+  "dce_rpc_pac.cc"
+  "dce_rpc_pac.h"
+  "events.bif.cc"
+  "events.bif.h"
+  "events.bif.init.cc"
+  "events.bif.register.cc"
+  "types.bif.cc"
+  "types.bif.h"
+  "types.bif.init.cc"
+  "types.bif.register.cc"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/plugin-Zeek-DCE_RPC.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

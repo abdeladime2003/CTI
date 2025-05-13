@@ -1,0 +1,37 @@
+# CMake generated Testfile for 
+# Source directory: /home/abdo/Cti_Project/zeek-6.0.2/src/packet_analysis/protocol
+# Build directory: /home/abdo/Cti_Project/zeek-6.0.2/build/src/packet_analysis/protocol
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs("root")
+subdirs("skip")
+subdirs("null")
+subdirs("ethernet")
+subdirs("vlan")
+subdirs("pppoe")
+subdirs("ppp_serial")
+subdirs("ieee802_11")
+subdirs("ieee802_11_radio")
+subdirs("fddi")
+subdirs("nflog")
+subdirs("mpls")
+subdirs("pbb")
+subdirs("linux_sll")
+subdirs("linux_sll2")
+subdirs("llc")
+subdirs("snap")
+subdirs("novell_802_3")
+subdirs("arp")
+subdirs("ip")
+subdirs("udp")
+subdirs("tcp")
+subdirs("icmp")
+subdirs("vntag")
+subdirs("gre")
+subdirs("iptunnel")
+subdirs("ayiya")
+subdirs("geneve")
+subdirs("vxlan")
+subdirs("teredo")
+subdirs("gtpv1")

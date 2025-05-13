@@ -1,0 +1,14 @@
+# Target labels
+ project_kqueue
+# Source files and their labels
+/home/abdo/Cti_Project/zeek-6.0.2/build/CMakeFiles/project_kqueue
+/home/abdo/Cti_Project/zeek-6.0.2/build/CMakeFiles/project_kqueue.rule
+/home/abdo/Cti_Project/zeek-6.0.2/build/CMakeFiles/project_kqueue-complete.rule
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-ep/src/project_kqueue-stamp/project_kqueue-build.rule
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-ep/src/project_kqueue-stamp/project_kqueue-configure.rule
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-ep/src/project_kqueue-stamp/project_kqueue-download.rule
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-ep/src/project_kqueue-stamp/project_kqueue-install.rule
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-ep/src/project_kqueue-stamp/project_kqueue-mkdir.rule
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-ep/src/project_kqueue-stamp/project_kqueue-patch.rule
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-ep/src/project_kqueue-stamp/project_kqueue-project_kqueue_build_step.rule
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-ep/src/project_kqueue-stamp/project_kqueue-update.rule

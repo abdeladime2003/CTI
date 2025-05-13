@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wno-unused -Wno-register -Werror=vla -O2 -g -DNDEBUG "CMakeFiles/gen-zam.dir/src/Gen-ZAM.cc.o" -o gen-zam  -Wl,-rpath,::::::::::::::::::: 

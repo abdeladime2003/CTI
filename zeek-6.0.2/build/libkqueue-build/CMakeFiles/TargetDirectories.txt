@@ -1,0 +1,12 @@
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/objlib.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/kqueue.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/kqueue_static.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/package.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/package_source.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/test.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/edit_cache.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/rebuild_cache.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/list_install_components.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/install.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/install/local.dir
+/home/abdo/Cti_Project/zeek-6.0.2/build/libkqueue-build/CMakeFiles/install/strip.dir

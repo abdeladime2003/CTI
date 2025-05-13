@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Computes CXX flags for Spicy compilation in the build tree. The value
+# computed by this script can be injected into Spicy JIT via the environment
+# variable `HILTI_CXX_INCLUDE_DIRS`.
+
+# Paths to support compiling Spicy parsers in the build tree.
+PATHS=/home/abdo/Cti_Project/zeek-6.0.2/auxil/spicy/hilti/runtime/include
+PATHS=$PATHS:/home/abdo/Cti_Project/zeek-6.0.2/auxil/spicy/spicy/runtime/include
+PATHS=$PATHS:/home/abdo/Cti_Project/zeek-6.0.2/build/auxil/spicy/include
+
+# Paths to support compiling against a build tree Zeek.
+PATHS=$PATHS:/home/abdo/Cti_Project/zeek-6.0.2/build
+PATHS=$PATHS:/home/abdo/Cti_Project/zeek-6.0.2/build/src
+PATHS=$PATHS:/home/abdo/Cti_Project/zeek-6.0.2/build/src/include
+PATHS=$PATHS:/home/abdo/Cti_Project/zeek-6.0.2/src
+PATHS=$PATHS:/home/abdo/Cti_Project/zeek-6.0.2/src/include
+PATHS=$PATHS:/home/abdo/Cti_Project/zeek-6.0.2/auxil/broker/include/
+
+echo $PATHS

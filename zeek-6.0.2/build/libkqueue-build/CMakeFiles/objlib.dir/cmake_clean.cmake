@@ -1,0 +1,37 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/objlib.dir/src/common/debug.c.o"
+  "CMakeFiles/objlib.dir/src/common/debug.c.o.d"
+  "CMakeFiles/objlib.dir/src/common/filter.c.o"
+  "CMakeFiles/objlib.dir/src/common/filter.c.o.d"
+  "CMakeFiles/objlib.dir/src/common/kevent.c.o"
+  "CMakeFiles/objlib.dir/src/common/kevent.c.o.d"
+  "CMakeFiles/objlib.dir/src/common/knote.c.o"
+  "CMakeFiles/objlib.dir/src/common/knote.c.o.d"
+  "CMakeFiles/objlib.dir/src/common/kqueue.c.o"
+  "CMakeFiles/objlib.dir/src/common/kqueue.c.o.d"
+  "CMakeFiles/objlib.dir/src/common/libkqueue.c.o"
+  "CMakeFiles/objlib.dir/src/common/libkqueue.c.o.d"
+  "CMakeFiles/objlib.dir/src/common/map.c.o"
+  "CMakeFiles/objlib.dir/src/common/map.c.o.d"
+  "CMakeFiles/objlib.dir/src/linux/platform.c.o"
+  "CMakeFiles/objlib.dir/src/linux/platform.c.o.d"
+  "CMakeFiles/objlib.dir/src/linux/proc.c.o"
+  "CMakeFiles/objlib.dir/src/linux/proc.c.o.d"
+  "CMakeFiles/objlib.dir/src/linux/read.c.o"
+  "CMakeFiles/objlib.dir/src/linux/read.c.o.d"
+  "CMakeFiles/objlib.dir/src/linux/signal.c.o"
+  "CMakeFiles/objlib.dir/src/linux/signal.c.o.d"
+  "CMakeFiles/objlib.dir/src/linux/timer.c.o"
+  "CMakeFiles/objlib.dir/src/linux/timer.c.o.d"
+  "CMakeFiles/objlib.dir/src/linux/user.c.o"
+  "CMakeFiles/objlib.dir/src/linux/user.c.o.d"
+  "CMakeFiles/objlib.dir/src/linux/vnode.c.o"
+  "CMakeFiles/objlib.dir/src/linux/vnode.c.o.d"
+  "CMakeFiles/objlib.dir/src/linux/write.c.o"
+  "CMakeFiles/objlib.dir/src/linux/write.c.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/objlib.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

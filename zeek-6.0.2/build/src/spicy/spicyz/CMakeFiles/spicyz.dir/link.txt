@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wno-unused -Wno-register -Werror=vla -O2 -g -DNDEBUG CMakeFiles/spicyz.dir/driver.cc.o "CMakeFiles/spicyz.dir/glue-compiler.cc.o" CMakeFiles/spicyz.dir/main.cc.o -o spicyz  -Wl,-rpath,/home/abdo/Cti_Project/zeek-6.0.2/build/auxil/spicy/lib: ../../../auxil/spicy/lib/libspicy.so ../../../auxil/spicy/lib/libhilti.so -ldl /usr/lib/x86_64-linux-gnu/libz.so 
