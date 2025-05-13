@@ -6,3 +6,4 @@ docker-compose.yaml
 zeek/
 /logs/
 libs/
+zeek-6.0.2.tar.gz
