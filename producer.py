@@ -1,25 +1,23 @@
-# producer.py
 from kafka import KafkaProducer
+from pymongo import MongoClient
 import json
 import time
-import random
+
+# Connexion MongoDB
+mongo_client = MongoClient("mongodb://172.30.240.1:27017/")
+db = mongo_client["kafka_logs"]  
+collection = db["logs_raw"] 
 producer = KafkaProducer(
     bootstrap_servers='localhost:9092',
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 
-def generate_log():
-    return {
-        "timestamp": time.time(),
-        "src_ip": f"192.168.1.{random.randint(1, 255)}",
-        "dst_ip": f"10.0.0.{random.randint(1, 255)}",
-        "port": random.choice([22, 80, 443, 8080, 3389]),
-        "protocol": random.choice(["TCP", "UDP"]),
-        "bytes_sent": random.randint(100, 5000)
-    }
+# Lecture des logs et envoi dans Kafka
+for log in collection.find():
+    log['_id'] = str(log['_id'])
+    producer.send("logs-topic", value=log)
+    print(f"[✓] Log envoyé : {log}")
+    time.sleep(0.5)  # Attente entre chaque envoi (simulation streaming)
 
-while True:
-    log = generate_log()
-    producer.send('network-logs', log)
-    print("Sent:", log)
-    time.sleep(1)
+producer.flush()
+print("✔️ Tous les logs ont été envoyés.")
