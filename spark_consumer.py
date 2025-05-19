@@ -1,59 +1,69 @@
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import from_json, col
-from pyspark.sql.types import StructType, StringType
+from pyspark.sql import SparkSession #type: ignore
+from pyspark.sql.functions import from_json, col #type: ignore
+from pyspark.sql.types import StructType, DoubleType, StringType #type: ignore
+from pyspark.ml import PipelineModel #type: ignore
 
-# Définir le schéma des logs
-log_schema = StructType() \
-    .add("_id", StringType()) \
-    .add("timestamp", StringType()) \
-    .add("src_ip", StringType()) \
-    .add("dst_ip", StringType()) \
-    .add("port", StringType()) \
-    .add("protocol", StringType()) \
-    .add("bytes_sent", StringType()) \
-    .add("processed", StringType())
+# 1. Créer la session Spark
+spark = SparkSession.builder.appName("CyberAttackDetection").getOrCreate()
 
-# Créer une SparkSession avec la configuration correcte pour MongoDB 10.3.0
-spark = SparkSession.builder \
-    .appName("KafkaToMongoDB") \
-    .config("spark.jars.packages", "org.mongodb.spark:mongo-spark-connector_2.12:10.3.0") \
-    .config("spark.mongodb.connection.uri", "mongodb://172.30.240.1:27017") \
-    .getOrCreate()
+# 2. Définir le schéma
+schema = StructType()
+for colname in [
+    'Flow ID', 'Source IP', 'Source Port', 'Destination IP', 'Destination Port',
+    'Protocol', 'Timestamp', 'Flow Duration', 'Total Fwd Packets', 'Total Backward Packets',
+    'Total Length of Fwd Packets', 'Total Length of Bwd Packets', 'Fwd Packet Length Max',
+    'Fwd Packet Length Min', 'Fwd Packet Length Mean', 'Fwd Packet Length Std', 'Bwd Packet Length Max',
+    'Bwd Packet Length Min', 'Bwd Packet Length Mean', 'Bwd Packet Length Std', 'Flow Bytes/s',
+    'Flow Packets/s', 'Flow IAT Mean', 'Flow IAT Std', 'Flow IAT Max', 'Flow IAT Min', 'Fwd IAT Total',
+    'Fwd IAT Mean', 'Fwd IAT Std', 'Fwd IAT Max', 'Fwd IAT Min', 'Bwd IAT Total', 'Bwd IAT Mean',
+    'Bwd IAT Std', 'Bwd IAT Max', 'Bwd IAT Min', 'Fwd PSH Flags', 'Bwd PSH Flags', 'Fwd URG Flags',
+    'Bwd URG Flags', 'Fwd Header Length40', 'Bwd Header Length', 'Fwd Packets/s', 'Bwd Packets/s',
+    'Min Packet Length', 'Max Packet Length', 'Packet Length Mean', 'Packet Length Std',
+    'Packet Length Variance', 'FIN Flag Count', 'SYN Flag Count', 'RST Flag Count', 'PSH Flag Count',
+    'ACK Flag Count', 'URG Flag Count', 'CWE Flag Count', 'ECE Flag Count', 'Down/Up Ratio',
+    'Average Packet Size', 'Avg Fwd Segment Size', 'Avg Bwd Segment Size', 'Fwd Header Length61',
+    'Fwd Avg Bytes/Bulk', 'Fwd Avg Packets/Bulk', 'Fwd Avg Bulk Rate', 'Bwd Avg Bytes/Bulk',
+    'Bwd Avg Packets/Bulk', 'Bwd Avg Bulk Rate', 'Subflow Fwd Packets', 'Subflow Fwd Bytes',
+    'Subflow Bwd Packets', 'Subflow Bwd Bytes', 'Init_Win_bytes_forward', 'Init_Win_bytes_backward',
+    'act_data_pkt_fwd', 'min_seg_size_forward', 'Active Mean', 'Active Std', 'Active Max', 'Active Min',
+    'Idle Mean', 'Idle Std', 'Idle Max', 'Idle Min'
+]:
+    schema = schema.add(colname, DoubleType())
 
-# Lire le stream depuis Kafka
+# Colonnes non utilisées comme features
+excluded = ['Flow ID', 'Source IP', 'Source Port', 'Destination IP', 'Destination Port', 'Protocol', 'Timestamp']
+feature_cols = [colname for colname in schema.fieldNames() if colname not in excluded]
+
+# 3. Lire le flux Kafka
 df_raw = spark.readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "localhost:9092") \
-    .option("subscribe", "logs-topic") \
-    .option("startingOffsets", "latest") \
+    .option("subscribe", "cyber_logs") \
     .load()
 
-# Convertir les messages Kafka en JSON
-df_logs = df_raw.selectExpr("CAST(value AS STRING) as json_str") \
-    .select(from_json(col("json_str"), log_schema).alias("data")) \
+# 4. Parser le JSON
+df_parsed = df_raw.selectExpr("CAST(value AS STRING)") \
+    .select(from_json(col("value"), schema).alias("data")) \
     .select("data.*")
 
-# Filtrage d'exemple : UDP sur port 22
-df_alerts = df_logs.filter((col("protocol") == "UDP") & (col("port") == "22"))
+# 5. Cast explicite et traitement des valeurs null
+for f in feature_cols:
+    df_parsed = df_parsed.withColumn(f, col(f).cast("double"))
 
-# Fonction batch pour écrire dans MongoDB avec le connecteur 10.3.0
-def write_to_mongo(batch_df, batch_id):
-    if not batch_df.isEmpty():
-        batch_df.write \
-            .format("mongodb") \
-            .mode("append") \
-            .option("database", "kafka_logs") \
-            .option("collection", "alerts") \
-            .save()
-        print(f"Batch {batch_id} écrit dans MongoDB avec succès")
-    else:
-        print(f"Batch {batch_id} vide, rien à écrire")
+# 6. Remplacer les valeurs null par 0.0
+df_clean = df_parsed.fillna(0.0)
 
-# Démarrer le stream avec foreachBatch
-query = df_alerts.writeStream \
-    .foreachBatch(write_to_mongo) \
+# 7. Charger le modèle entraîné
+model = PipelineModel.load("/home/abdo/Cti_Project/content/random_forest_best_model")
+
+# 8. Appliquer le modèle
+df_predicted = model.transform(df_clean)
+
+# 9. Afficher les prédictions
+query = df_predicted.select("prediction") \
+    .writeStream \
+    .format("console") \
     .outputMode("append") \
-    .option("checkpointLocation", "/tmp/spark_checkpoint_logs") \
     .start()
 
 query.awaitTermination()
