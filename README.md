@@ -296,7 +296,7 @@ SYSTEM_METRICS = {
     'kafka_lag': '<100ms consumer lag',
     'model_inference_time': '45ms average',
     'false_positive_rate': '2.8%',
-    'detection_accuracy': '94.7% overall'
+    'detection_accuracy': '92.66% overall'
 }
 ```
 
@@ -313,7 +313,7 @@ SYSTEM_METRICS = {
 MODEL_PERFORMANCE = {
     'training_samples': 125000,
     'features_count': 45,
-    'cross_validation_accuracy': 0.947,
+    'cross_validation_accuracy': 0.92,
     'test_set_accuracy': 0.942,
     'training_time': '847 seconds',
     'model_size': '23.4 MB',
@@ -677,7 +677,7 @@ Real-Time-Cybersecurity-Detection-System/
 **Performance Achievements:**
 - ✅ Sub-2-second detection latency
 - ✅ 15,000+ events/second processing capacity
-- ✅ 94.7% overall detection accuracy
+- ✅ 92.66% overall detection accuracy
 - ✅ <3% false positive rate
 
 ### Future Enhancements
